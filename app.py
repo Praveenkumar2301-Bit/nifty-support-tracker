@@ -39,9 +39,12 @@ def fetch_support_resistance(symbols):
     for symbol in symbols:
         try:
             df = yf.download(symbol, period="5d", interval="1d", progress=False)
+            st.text(f"Fetching {symbol}...")
+            st.text(df.tail(2))
+
             if df.shape[0] < 2:
                 continue
-
+            
             high = float(df['High'].iloc[-2])
             low = float(df['Low'].iloc[-2])
             close = float(df['Close'].iloc[-2])
