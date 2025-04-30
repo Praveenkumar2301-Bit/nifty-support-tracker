@@ -38,7 +38,7 @@ def fetch_support_resistance(symbols):
     results = []
     for symbol in symbols:
         try:
-            df = yf.download(symbol, period="7d", interval="1d", progress=False)
+            df = yf.download(symbol, period="5d", interval="1d", progress=False)
             if df.shape[0] < 2:
                 continue
 
